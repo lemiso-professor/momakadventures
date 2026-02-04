@@ -1,96 +1,80 @@
 <template>
-  <header class="fixed top-0 w-full z-50 shadow-sm font-sans">
-    <!-- 1. TOP BAR -->
-    <div :class="['bg-emerald-600 text-white transition-all duration-500 overflow-hidden', scrolled ? 'max-h-0 opacity-0' : 'max-h-24 py-2 md:py-2.5']">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
+  <header class="fixed top-0 w-full z-50 shadow-md font-sans">
+    
+    <!-- 1. TOP UTILITY BAR (Hides on scroll) -->
+    <div :class="['bg-[#2E251E] text-white transition-all duration-500 overflow-hidden border-b border-white/5', scrolled ? 'max-h-0 opacity-0' : 'max-h-24 py-2']">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         
-        <!-- Left: Contact Info -->
-        <div class="flex items-center justify-center space-x-4 md:space-x-8 text-[11px] md:text-[13px] font-light">
-          <a href="mailto:info@momak.co.ke" class="flex items-center gap-1.5 whitespace-nowrap hover:text-emerald-100 transition-colors">
-            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-            info@momak.co.ke
+        <!-- Left: Contact Info with Icons -->
+        <div class="hidden md:flex items-center space-x-6 text-[11px] font-medium text-gray-300 uppercase tracking-wider">
+          <a href="tel:+254700000000" class="flex items-center gap-2 hover:text-[#F17216] transition-colors">
+            <svg class="w-3.5 h-3.5 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            +254 700 000 000
           </a>
-          <a href="tel:+254735484130" class="flex items-center gap-1.5 whitespace-nowrap hover:text-emerald-100 transition-colors">
-            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-            +254 735 484 130
+          <a href="mailto:info@momakadventures.com" class="flex items-center gap-2 hover:text-[#F17216] transition-colors">
+            <svg class="w-3.5 h-3.5 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            info@momakadventures.com
           </a>
         </div>
 
-        <!-- Right: Tagline & Social Logos -->
-        <div class="flex items-center gap-6">
-          <div class="hidden lg:block text-[11px] md:text-[13px] font-medium opacity-90 border-r border-emerald-500/50 pr-6">
-            Engineering & Technology Solutions
-          </div>
-          
-          <div class="flex items-center gap-4">
-            <a href="https://www.linkedin.com/in/moses-mtende-pmp%C2%AE-527aa265/" target="_blank" class="hover:text-emerald-200 transition-colors">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/mmtende/" target="_blank" class="hover:text-emerald-200 transition-colors">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://x.com/mtendemoses" target="_blank" class="hover:text-emerald-200 transition-colors">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153zM17.61 20.644h2.039L6.486 3.24H4.298L17.61 20.644z"/></svg>
-            </a>
-          </div>
+        <!-- Right: Auth Links with Icons -->
+        <div class="flex items-center gap-6 ml-auto md:ml-0 text-[11px] font-bold tracking-widest uppercase">
+          <a href="#" class="flex items-center gap-2 hover:text-[#F17216] transition-colors">
+            <svg class="w-4 h-4 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
+            Register
+          </a>
+          <a href="#" class="flex items-center gap-2 hover:text-[#F17216] transition-colors border-l border-white/10 pl-6">
+            <svg class="w-4 h-4 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+            Login
+          </a>
         </div>
       </div>
     </div>
 
     <!-- 2. MAIN NAVIGATION -->
-    <nav class="bg-white border-b border-gray-100">
+    <nav class="bg-[#6A6354] text-white">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20">
-          <!-- Logo -->
-          <div class="flex items-center gap-2 md:gap-3">
-            <div class="text-emerald-600">
-              <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 19.77h20L12 2zm0 3.77l6.6 11.5H5.4L12 5.77z" />
-              </svg>
+          
+          <!-- Logo with Mountain Icon -->
+          <router-link to="/" class="flex items-center gap-3 group">
+            <div class="bg-[#F17216] p-2 rounded-lg shadow-lg group-hover:rotate-12 transition-transform duration-300">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M3 21l8-14 4 7 4-10 4 17" /></svg>
             </div>
             <div>
-              <h1 class="text-xl md:text-2xl font-bold text-gray-900 leading-tight">Momak</h1>
-              <p class="text-[7px] md:text-[9px] font-bold tracking-[0.2em] text-emerald-600 uppercase">Technologies Ltd</p>
+              <h1 class="text-lg md:text-xl font-bold tracking-tight">Momak Adventures</h1>
+              <p class="text-[8px] tracking-[0.3em] uppercase opacity-60 -mt-1 font-bold">Explore Africa</p>
             </div>
-          </div>
+          </router-link>
 
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center space-x-10">
-            <div class="flex items-center space-x-8">
-              <router-link
-                v-for="(item, index) in navigation"
-                :key="index"
-                :to="item.href"
-                class="text-[15px] font-semibold transition-all py-1 border-b-2"
-                :class="route.path === item.href 
-                  ? 'text-emerald-600 border-emerald-600' 
-                  : 'text-gray-800 border-transparent hover:text-emerald-600'"
-              >
-                {{ item.name }}
-              </router-link>
-            </div>
-            <router-link to="/getaquote">
-              <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-2.5 rounded-lg font-bold text-sm transition-colors shadow-md">
-                Get a Quote
+          <!-- Desktop Menu with Icons -->
+          <div class="hidden lg:flex items-center space-x-6">
+            <router-link
+              v-for="(item, index) in navigation"
+              :key="index"
+              :to="item.href"
+              class="flex items-center gap-1.5 text-[11px] xl:text-[12px] font-bold tracking-wider transition-all hover:text-[#F17216]"
+              :class="route.path === item.href ? 'text-[#F17216]' : 'text-white'"
+            >
+              <!-- Dynamic Icon Component/SVG -->
+              <span v-html="item.icon" class="w-4 h-4 opacity-70"></span>
+              {{ item.name }}
+            </router-link>
+            
+            <!-- Book Now Button with Icon -->
+            <router-link to="/booking">
+              <button class="bg-[#F17216] hover:bg-[#D65D00] text-white px-6 py-2.5 rounded-full font-bold text-[11px] tracking-widest transition-all transform hover:scale-105 shadow-md flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                BOOK NOW
               </button>
             </router-link>
           </div>
 
-          <!-- Mobile Toggle Button (Fixed to Emerald Green) -->
-          <div class="md:hidden">
-            <button 
-              @click="toggleMenu" 
-              class="text-emerald-600 p-2 focus:outline-none"
-              aria-label="Toggle Menu"
-            >
-              <!-- Hamburger Icon (Shows when menu is closed) -->
-              <svg v-if="!isOpen" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-              <!-- Close Icon (Shows when menu is open) -->
-              <svg v-else class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+          <!-- Mobile Toggle Button -->
+          <div class="lg:hidden">
+            <button @click="toggleMenu" class="text-white p-2">
+              <svg v-if="!isOpen" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+              <svg v-else class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
           </div>
         </div>
@@ -101,38 +85,27 @@
         enter-active-class="transition duration-200 ease-out"
         enter-from-class="transform -translate-y-4 opacity-0"
         enter-to-class="transform translate-y-0 opacity-100"
-        leave-active-class="transition duration-150 ease-in"
-        leave-from-class="transform translate-y-0 opacity-100"
-        leave-to-class="transform -translate-y-4 opacity-0"
       >
-        <div v-if="isOpen" class="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-2xl z-40">
-          <div class="px-4 py-6 space-y-2">
+        <div v-if="isOpen" class="lg:hidden bg-[#5a5447] border-t border-[#7a7364] absolute w-full left-0 shadow-2xl z-40">
+          <div class="px-4 py-6 space-y-1">
             <router-link
               v-for="(item, index) in navigation"
               :key="index"
               :to="item.href"
-              class="block px-4 py-3 rounded-lg text-lg font-semibold transition-colors"
-              :class="route.path === item.href ? 'bg-emerald-50 text-emerald-600' : 'text-gray-800 hover:bg-gray-50'"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold uppercase transition-colors"
+              :class="route.path === item.href ? 'bg-[#F17216] text-white' : 'text-gray-200'"
               @click="isOpen = false"
             >
+              <span v-html="item.icon" class="w-5 h-5"></span>
               {{ item.name }}
             </router-link>
-            
-            <div class="pt-4 px-4">
-              <router-link to="/getaquote" @click="isOpen = false">
-                <button class="w-full bg-emerald-600 text-white py-4 rounded-xl font-bold text-lg shadow-lg">
-                  Get a Quote
-                </button>
-              </router-link>
-            </div>
           </div>
         </div>
       </transition>
     </nav>
   </header>
   
-  <!-- Spacer to prevent content from going under fixed header -->
-  <div :class="scrolled ? 'h-16 md:h-20' : 'h-32 md:h-36'" class="transition-all duration-500"></div>
+  <div :class="scrolled ? 'h-16 md:h-20' : 'h-24 md:h-28'" class="transition-all duration-500"></div>
 </template>
 
 <script setup>
@@ -143,19 +116,51 @@ const route = useRoute();
 const isOpen = ref(false);
 const scrolled = ref(false);
 
+// Navigation with theme-specific SVG icons
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/aboutus" },
-  { name: "Services", href: "/service" },
-  { name: "Partners", href: "/partner" },
-  { name: "Contact", href: "/contact" },
+  { 
+    name: "Home", 
+    href: "/", 
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>` 
+  },
+  { 
+    name: "Safaris", 
+    href: "/safaris", 
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>` // Using heart as placeholder, but Safari icons are usually custom
+  },
+  { 
+    name: "Beach Holidays", 
+    href: "/beach", 
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>` 
+  },
+  { 
+    name: "Adventures", 
+    href: "/adventures", 
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>` 
+  },
+  { 
+    name: "Packages", 
+    href: "/packages", 
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>` 
+  },
+  { 
+    name: "Reviews", 
+    href: "/reviews", 
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.54 1.118l-3.976-2.888a1 1 0 00-1.175 0l-3.976 2.888c-.784.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>` 
+  },
+  { 
+    name: "Contact Us", 
+    href: "/contact", 
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>` 
+  },
+  { 
+    name: "Airbnb", 
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>` 
+  },
 ];
 
 const toggleMenu = () => (isOpen.value = !isOpen.value);
-
-const handleScroll = () => {
-  scrolled.value = window.scrollY > 20;
-};
+const handleScroll = () => { scrolled.value = window.scrollY > 20; };
 
 onMounted(() => window.addEventListener("scroll", handleScroll));
 onBeforeUnmount(() => window.removeEventListener("scroll", handleScroll));

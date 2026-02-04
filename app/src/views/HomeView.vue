@@ -1,14 +1,16 @@
 <template>
   <div>
     <Hero />
-    <Innovate />
+    <Explore />
+    <Rated />
     <Start />
   </div>
 </template>
 
 <script setup>
 import Hero from "../components/home-page/Hero.vue";
-import Innovate from "../components/home-page/Innovate.vue";
+import Explore from "../components/home-page/Explore.vue";
+import Rated from "../components/home-page/Rated.vue";
 import Start from "../components/home-page/Start.vue";
 </script>
 

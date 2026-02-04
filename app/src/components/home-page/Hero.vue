@@ -1,129 +1,97 @@
 <template>
-  <section class="relative px-4 py-8 md:px-10 md:py-12 bg-slate-50 min-h-150">
-    <!-- Main Hero Container -->
-    <div
-      class="relative max-w-7xl mx-auto h-125 md:h-150 overflow-hidden rounded-3xl shadow-2xl"
-    >
-      <!-- Background Image with Overlay -->
-      <div class="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=2000"
-          alt="Telecom Tower"
-          class="w-full h-full object-cover"
-        />
-        <!-- Dark Blue/Black Gradient Overlay to make text readable -->
-        <div
-          class="absolute inset-0 bg-linear-to-r from-slate-900/90 via-slate-900/40 to-transparent"
-        ></div>
-      </div>
-
-      <!-- Content Area -->
-      <div
-        class="relative z-10 h-full flex flex-col justify-center px-8 md:px-20 max-w-3xl"
-      >
-        <!-- Animated Transition Group for Slides -->
-        <transition name="fade-slide" mode="out-in">
-          <div :key="currentSlide" class="space-y-6">
-            <!-- Main Title -->
-            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
-              {{ slides[currentSlide].title }}
-            </h1>
-
-            <!-- Paragraph Text -->
-            <p
-              class="text-lg md:text-xl text-gray-200 font-light leading-relaxed max-w-xl"
-            >
-              {{ slides[currentSlide].description }}
-            </p>
-          </div>
-        </transition>
-
-        <!-- Buttons -->
-        <div class="mt-10 flex flex-wrap gap-4">
-          <router-link
-            to="/getaquote"
-            class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg"
-          >
-            Get Started
-          </router-link>
-          <router-link
-            to="/services"
-            class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-3 rounded-xl font-bold transition-all"
-          >
-            View Our Services
-          </router-link>
+  <!-- Main Hero Container -->
+  <section class="relative h-[70vh] w-full overflow-hidden flex items-center justify-center bg-gray-900">
+    
+    <!-- 1. BACKGROUND SLIDER LAYER -->
+    <div class="absolute inset-0 z-0">
+      <transition-group name="fade">
+        <div 
+          v-for="(image, index) in images" 
+          :key="image"
+          v-show="currentImageIndex === index"
+          class="absolute inset-0 w-full h-full"
+        >
+          <img 
+            :src="image" 
+            class="w-full h-full object-cover animate-kenburns"
+            alt="East Africa Safari"
+          />
         </div>
+      </transition-group>
+      
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+    </div>
 
-        <!-- Slide Indicators (Dots) -->
-        <div class="absolute bottom-8 left-8 md:left-20 flex space-x-2">
-          <div
-            v-for="(_, index) in slides"
-            :key="index"
-            @click="currentSlide = index"
-            :class="[
-              'h-1.5 transition-all duration-500 rounded-full cursor-pointer',
-              currentSlide === index ? 'w-8 bg-emerald-500' : 'w-2 bg-white/30',
-            ]"
-          ></div>
-        </div>
+    <!-- 2. STATIC CONTENT LAYER -->
+    <div class="relative z-20 container mx-auto px-4 text-center text-white pb-12">
+      <h2 class="text-3xl md:text-6xl font-bold mb-4 max-w-5xl mx-auto leading-tight drop-shadow-lg">
+        Experience the Magic of East Africa
+      </h2>
+      
+      <p class="text-base md:text-lg font-medium mb-8 max-w-2xl mx-auto opacity-90 leading-relaxed drop-shadow-md">
+        Unforgettable safaris, pristine beaches, and breathtaking adventures tailored for the curious soul.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button class="w-full sm:w-auto bg-[#F17216] hover:bg-[#D65D00] text-white px-8 py-3 rounded-lg font-bold text-base transition-all transform hover:scale-105 shadow-xl">
+          View Packages
+        </button>
+        <button class="w-full sm:w-auto bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/30 px-8 py-3 rounded-lg font-bold text-base transition-all transform hover:scale-105">
+          Learn More
+        </button>
       </div>
     </div>
+
+    <!-- 3. THE WAVY STRUCTURE (Bottom Divider) -->
+    <!-- This div holds your wavy image at the very bottom -->
+    <div class="absolute bottom-0 left-0 w-full z-30 leading-[0]">
+        <!-- Replace 'path-to-your-wave-image.png' with your actual image path -->
+        <img 
+            src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770152024/footer-light_wwdifr.png" 
+            class="w-full h-auto min-h-[40px] md:min-h-[80px] object-cover object-top" 
+            alt="wave divider"
+        />
+    </div>
+
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted } from 'vue'
 
-const currentSlide = ref(0);
-let timer = null;
+const images = [
+  'https://res.cloudinary.com/drbhyey5b/image/upload/v1770197314/elephant_josr6y.avif',
+  'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2068&auto=format&fit=crop',
+  'https://res.cloudinary.com/drbhyey5b/image/upload/v1770152160/Safaris-Tours_nbozaa.jpg'
+]
 
-const slides = [
-  {
-    title: "Who We Are",
-    description:
-      "Architects of connectivity. Builders of innovation. Since 2020, Momak Technologies Ltd has been a leader in engineering, telecom, and ICT, driving positive change in a connected world.",
-  },
-  {
-    title: "What We Do",
-    description:
-      "We provide expert engineering and ICT solutions including solar installations, civil works, and telecom infrastructure. Our highly skilled team is built to solve complex problems and deliver high-impact results.",
-  },
-  {
-    title: "Why We Care",
-    description:
-      "We believe in technology for good. By bridging the digital divide and prioritizing sustainability, we empower communities and create a brighter, more inclusive future.",
-  },
-];
-
-const startTimer = () => {
-  timer = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.length;
-  }, 4000); // Transitions every 2 seconds
-};
+const currentImageIndex = ref(0)
 
 onMounted(() => {
-  startTimer();
-});
-
-onBeforeUnmount(() => {
-  if (timer) clearInterval(timer);
-});
+  setInterval(() => {
+    currentImageIndex.value = (currentImageIndex.value + 1) % images.length
+  }, 6000)
+})
 </script>
 
 <style scoped>
-/* Smooth Fade and Slide Animation */
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.8s ease;
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
 }
 
-.fade-slide-enter-from {
-  opacity: 0;
-  transform: translateX(20px);
+.animate-kenburns {
+  animation: kenburns 7s ease-out forwards;
 }
 
-.fade-slide-leave-to {
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
-  transform: translateX(-20px);
 }
 </style>
