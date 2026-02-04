@@ -69,15 +69,15 @@
             <div class="space-y-5">
                 <div class="flex gap-4 items-start text-sm">
                     <i class="fas fa-map-marker-alt text-[#F17216] mt-1"></i>
-                    <p>12th Floor, Corner House<br/>Kimathi Street, Nairobi, Kenya</p>
+                    <p> Nairobi, Kenya</p>
                 </div>
                 <div class="flex gap-4 items-center text-sm">
                     <i class="fas fa-phone-alt text-[#F17216]"></i>
-                    <p>+254 712 345 678</p>
+                    <p>+254 111 555 749</p>
                 </div>
                 <div class="flex gap-4 items-center text-sm">
                     <i class="fas fa-envelope text-[#F17216]"></i>
-                    <p>info@momakadventures.co.ke</p>
+                    <p>support@momakadventures.com</p>
                 </div>
             </div>
             <button class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-4 rounded-xl flex items-center justify-center gap-3 font-bold transition-all shadow-xl shadow-green-900/20">
@@ -101,8 +101,7 @@
 
         <!-- Copyright & Legal -->
         <div class="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">
-          <p>© 2024 MOMAK ADVENTURES. ALL RIGHTS RESERVED.</p>
-          <div class="flex gap-8">
+<p>© {{ new Date().getFullYear() }} MOMAK ADVENTURES. ALL RIGHTS RESERVED.</p>          <div class="flex gap-8">
             <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
             <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>

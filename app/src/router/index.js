@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import {
   HomeView,
-  AboutusView,
+  SafarisView,
   SerView,
   PartnerView,
   ContactView,
@@ -10,7 +10,7 @@ import {
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
-  { path: "/aboutus", name: "about", component: AboutusView },
+  { path: "/safaris", name: "safaris", component: SafarisView },
   { path: "/service", name: "service", component: SerView },
   { path: "/partner", name: "partner", component: PartnerView },
   { path: "/contact", name: "contact", component: ContactView },

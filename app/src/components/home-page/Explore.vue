@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full">
     <!-- Section 1: Expert Services -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +19,9 @@
                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ service.title }}</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-[#F17216]">
+              {{ service.title }}
+            </h3>
             <p class="text-gray-500 text-sm leading-relaxed">
               {{ service.description }}
             </p>
@@ -41,14 +43,26 @@
 
         <!-- Features Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div v-for="(feature, index) in features" :key="index" class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 text-left transition-all hover:shadow-xl">
+          <div 
+            v-for="(feature, index) in features" 
+            :key="index" 
+            class="group bg-white p-10 rounded-2xl shadow-sm border border-gray-100 text-left transition-all duration-300 hover:bg-[#F17216] hover:shadow-xl hover:-translate-y-2 cursor-default"
+          >
             <!-- Icon -->
             <div class="mb-6">
-              <component :is="feature.icon" class="w-8 h-8 text-[#F17216]" />
+              <component 
+                :is="feature.icon" 
+                class="w-10 h-10 text-[#F17216] transition-colors duration-300 group-hover:text-white" 
+              />
             </div>
             
-            <h3 class="text-xl font-bold text-gray-900 mb-4">{{ feature.title }}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">
+            <!-- Title -->
+            <h3 class="text-xl font-bold text-gray-900 mb-4 transition-colors duration-300 group-hover:text-white">
+              {{ feature.title }}
+            </h3>
+            
+            <!-- Description -->
+            <p class="text-gray-500 text-sm leading-relaxed transition-colors duration-300 group-hover:text-white/90">
               {{ feature.description }}
             </p>
           </div>
@@ -99,3 +113,10 @@ const features = [
   }
 ]
 </script>
+
+<style scoped>
+/* Optional: ensures smooth font rendering during transitions */
+h2, h3, p {
+  -webkit-font-smoothing: antialiased;
+}
+</style>
