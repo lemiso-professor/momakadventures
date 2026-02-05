@@ -3,12 +3,14 @@ import {
   HomeView,
   SafarisView,
   BeacholidaysView,
+  AdventuresView
 } from "../views";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
   { path: "/safaris", name: "safaris", component: SafarisView },
   { path: "/beacholidays", name: "beacholidays", component: BeacholidaysView },
+  { path: "/adventures", name: "adventures", component: AdventuresView },
 
 ];
 
