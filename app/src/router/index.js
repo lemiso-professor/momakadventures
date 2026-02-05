@@ -6,7 +6,9 @@ import {
   AdventuresView,
   PackagesView,
   GalleryView,  
-  ReviewView
+  ReviewView,
+  ContactView,
+  AirView,
 } from "../views";
 
 const routes = [
@@ -17,6 +19,8 @@ const routes = [
   { path: "/packages", name: "packages", component: PackagesView },
   { path: "/gallery", name: "gallery", component: GalleryView },
   { path: "/reviews", name: "reviews", component: ReviewView },
+  { path: "/contact", name: "contact", component: ContactView },
+  { path: "/airbnb", name: "airbnb", component: AirView },
 
 ];
 
