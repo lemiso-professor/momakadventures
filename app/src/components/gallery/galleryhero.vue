@@ -13,65 +13,124 @@
         </p>
       </div>
 
-      <!-- GALLERY GRID -->
-      <!-- We use a 3-column grid for desktop with specific row heights -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[150px] md:auto-rows-[180px]">
-        
-        <!-- 1. ELEPHANT (Left Tall) -->
-        <div class="md:row-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
-          <img 
-            src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800&auto=format&fit=crop" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Elephant in the wild"
-          />
-        </div>
+     <!-- EXPANDED GALLERY GRID -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[200px]">
+  
+  <!-- 1. Elephant (Tall) -->
+  <div class="md:row-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385730/Screenshot_2026-02-06_163558_ayt4cx.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Elephant">
+  </div>
 
-        <!-- 2. LION (Center Small) -->
-        <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
-          <img 
-            src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800&auto=format&fit=crop" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Lion portrait"
-          />
-        </div>
+  <!-- 2. Lion -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385728/Screenshot_2026-02-06_163510_vq6hyu.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Lion">
+  </div>
 
-        <!-- 3. ACACIA TREE (Wide span across 2 columns) -->
-        <div class="hidden md:block md:col-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
-          <img 
-            src="https://images.unsplash.com/photo-1519066632447-479e4f37e980?q=80&w=1200&auto=format&fit=crop" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Savannah sunset"
-          />
-        </div>
+  <!-- 3. Zebras (Wide) -->
+  <div class="md:col-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385731/Screenshot_2026-02-06_163643_gdhnyw.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Zebras">
+  </div>
 
-        <!-- 4. OCEAN (Bottom Left Small) -->
-        <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
-          <img 
-            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800&auto=format&fit=crop" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Diani Beach coast"
-          />
-        </div>
+  <!-- 4. Beach/Landscape -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385735/Screenshot_2026-02-06_163908_mwzumc.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Coast">
+  </div>
 
-        <!-- 5. LEOPARD (Bottom Center Tall) -->
-        <div class="md:row-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
-          <img 
-            src="https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800&auto=format&fit=crop" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Leopard portrait"
-          />
-        </div>
+  <!-- 5. Leopard (Tall) -->
+  <div class="md:row-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385735/Screenshot_2026-02-06_163947_awubdq.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Leopard">
+  </div>
 
-        <!-- 6. HOT AIR BALLOON (Bottom Right) -->
-        <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
-          <img 
-            src="https://images.unsplash.com/photo-1533561052604-c3eba0155530?q=80&w=800&auto=format&fit=crop" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Safari balloon"
-          />
-        </div>
+  <!-- 6. Giraffe -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385743/Screenshot_2026-02-06_164202_itxads.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Giraffe">
+  </div>
 
-      </div>
+  <!-- 7. Cheetah -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385736/Screenshot_2026-02-06_163631_yrtedn.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Cheetah">
+  </div>
+
+  <!-- 8. Sunset (Wide) -->
+  <div class="md:col-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385739/Screenshot_2026-02-06_164122_fchrjk.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Sunset">
+  </div>
+
+  <!-- 9. Flamingos -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385741/Screenshot_2026-02-06_164214_jhtxpz.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Flamingos">
+  </div>
+
+  <!-- 10. Mountain (Tall) -->
+  <div class="md:row-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385743/Screenshot_2026-02-06_164019_ind5mc.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Mountain">
+  </div>
+
+  <!-- 11. Forest -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385743/Screenshot_2026-02-06_163924_xyhqoz.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Forest">
+  </div>
+
+  <!-- 12. Rhino -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385744/Screenshot_2026-02-06_163718_rdmbji.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Rhino">
+  </div>
+
+  <!-- 13. Buffalo -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385743/Screenshot_2026-02-06_164228_t8myji.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Buffalo">
+  </div>
+
+  <!-- 14. Camp (Wide) -->
+  <div class="md:col-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385751/Screenshot_2026-02-06_164350_p7zibt.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Safari Camp">
+  </div>
+
+  <!-- 15. Maasai Culture (Tall) -->
+  <div class="md:row-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385747/Screenshot_2026-02-06_164621_dyyymo.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Culture">
+  </div>
+
+  <!-- 16. Waterfall -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385750/Screenshot_2026-02-06_164713_ic0jct.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Waterfall">
+  </div>
+
+  <!-- 17. Safari Jeep -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385751/Screenshot_2026-02-06_164500_l4fp4y.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Safari Jeep">
+  </div>
+
+  <!-- 18. Hippos (Wide) -->
+  <div class="md:col-span-2 rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385753/Screenshot_2026-02-06_163758_dblxy9.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Hippos">
+  </div>
+
+  <!-- 19. Final Landscape -->
+  <div class="rounded-2xl md:rounded-3xl overflow-hidden group">
+    <img src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385753/Screenshot_2026-02-06_164738_lhktlw.png" 
+         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Landscape">
+  </div>
+
+</div>
 
       <!-- Divider line matching your footer style -->
       <div class="mt-20 border-t border-gray-100"></div>

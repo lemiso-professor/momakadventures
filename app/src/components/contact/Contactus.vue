@@ -5,7 +5,7 @@
       <div class="relative h-[350px] rounded-3xl overflow-hidden shadow-2xl">
         <!-- Background Image -->
         <img 
-          src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770198796/mtkenya_adventure_yufdmh.webp" 
+          src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385751/Screenshot_2026-02-06_164350_p7zibt.png" 
           alt="Contact Hero" 
           class="absolute inset-0 w-full h-full object-cover"
         />

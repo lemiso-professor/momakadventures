@@ -115,7 +115,7 @@ const packages = [
     displayCategory: 'SAFARI',
     rating: 4.9,
     description: 'Witness the Great Migration and view Mount Kilimanjaro from the plains of Amboseli.',
-    image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800&auto=format&fit=crop'
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770384541/maasai_mara_and_amboseli_grandsafar_u6pfv1.avif'
   },
   {
     id: 2,
@@ -124,7 +124,7 @@ const packages = [
     displayCategory: 'BEACH',
     rating: 4.7,
     description: 'Relax on the award-winning white sands of Diani Beach with private villa stays.',
-    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800&auto=format&fit=crop'
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770384541/diani_beach_luxury_escape_tiecza.jpg'
   },
   {
     id: 3,
@@ -133,7 +133,7 @@ const packages = [
     displayCategory: 'CULTURE',
     rating: 5.0,
     description: 'A deep dive into the diverse cultures of East Africa, from Maasai villages to Swahili islands.',
-    image: 'https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800&auto=format&fit=crop'
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770384541/heart_of_east_africa_heritage_ujyvyf.jpg'
   },
   {
     id: 4,
@@ -142,7 +142,7 @@ const packages = [
     displayCategory: 'ADVENTURE',
     rating: 4.8,
     description: 'A once-in-a-lifetime encounter with mountain gorillas in the Volcanoes National Park.',
-    image: 'https://images.unsplash.com/photo-1534149043227-d4677db30297?q=80&w=800&auto=format&fit=crop'
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770384540/rwanda_treking_gorillas_kop6mc.jpg'
   }
 ]
 

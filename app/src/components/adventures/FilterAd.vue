@@ -130,7 +130,7 @@ const expeditions = [
   {
     title: 'Mt. Kenya: Sirimon Route',
     description: 'Summit Lenana Peak. A classic trek through diverse ecosystems, from tropical forest to moorlands.',
-    image: 'https://images.unsplash.com/photo-1589197331516-4d845f3eb63a?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383532/mt_kenyasirimon_route_symygb.jpg',
     rating: '4.9',
     reviews: '124',
     category: 'Hiking'
@@ -138,7 +138,7 @@ const expeditions = [
   {
     title: 'Mt. Kilimanjaro: Machame',
     description: 'Known as the "Whiskey" route. A scenic climb through rainforests to the snow-capped Uhuru Peak.',
-    image: 'https://images.unsplash.com/photo-1580191947416-62d35a55e71d?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383532/mount_kilimanjaro_machane_elmjew.jpg',
     rating: '4.9',
     reviews: '342',
     category: 'Hiking'
@@ -146,7 +146,7 @@ const expeditions = [
   {
     title: 'Ngong Hills Forest Hike',
     description: 'A favorite day hike near Nairobi offering panoramic views of the Great Rift Valley.',
-    image: 'https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383532/ngong_hills_xufzdm.jpg',
     rating: '4.6',
     reviews: '189',
     category: 'Hiking'
@@ -154,7 +154,7 @@ const expeditions = [
   {
     title: 'Ndeiya Rock Climbing',
     description: "Test your limits on the Great Rift Valley's premier vertical routes with expert safety guides.",
-    image: 'https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383533/ndeiya_rock_climbing_dtrsq3.jpg',
     rating: '5.0',
     reviews: '56',
     category: 'Rock Climbing'
@@ -162,7 +162,7 @@ const expeditions = [
   {
     title: "Fischer's Tower: Hell's Gate",
     description: 'Scale the iconic volcanic plug. Perfect for beginners and intermediate climbers.',
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383531/Fischer_s_Tower_Hell_s_Gate_lcizgy.jpg',
     rating: '4.9',
     reviews: '88',
     category: 'Rock Climbing'
@@ -170,7 +170,7 @@ const expeditions = [
   {
     title: 'Lukenya Hill Technical Crags',
     description: "Kenya's most famous climbing destination. Technical granite routes with multiple pitches.",
-    image: 'https://images.unsplash.com/photo-1601590635155-ebd8ba01b721?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383531/Lukenya_Hill_Technical_Crags_z0o9nb.jpg',
     rating: '4.8',
     reviews: '112',
     category: 'Rock Climbing'
@@ -178,7 +178,7 @@ const expeditions = [
   {
     title: "Hell's Gate Biking Safari",
     description: 'Ride alongside zebras and giraffes. Explore deep gorges and volcanic landscapes on two wheels.',
-    image: 'https://images.unsplash.com/photo-1541414779316-956a5084c0d4?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383531/hells_gate_biking_safari_jeqwmq.jpg',
     rating: '4.8',
     reviews: '215',
     category: 'Mountain Biking'
@@ -186,7 +186,7 @@ const expeditions = [
   {
     title: 'Karura Forest Single Track',
     description: 'Navigate through indigenous forests and waterfalls on world-class mountain biking trails.',
-    image: 'https://images.unsplash.com/photo-1596568243304-749e755291b0?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383531/Karura_Forest_Single_Track_qvogce.jpg',
     rating: '4.8',
     reviews: '156',
     category: 'Mountain Biking'
@@ -194,12 +194,12 @@ const expeditions = [
   {
     title: 'Aberdare Range Traverse',
     description: "A high-altitude trek through moorlands and bamboo forests, home to spectacular waterfalls.",
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770383531/Aberdare_Range_Traverse_hth0zm.jpg',
     rating: '4.7',
     reviews: '82',
     category: 'Multi-day Trek'
   }
-]
+];
 
 const filteredExpeditions = computed(() => {
   return expeditions.filter(item => item.category === activeFilter.value)

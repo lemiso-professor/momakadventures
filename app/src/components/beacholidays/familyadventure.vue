@@ -89,10 +89,10 @@ const familyPackages = [
 
 // WATER SPORTS DATA
 const waterSports = [
-  { name: 'Kite Surfing', image: 'https://images.unsplash.com/photo-1500353391642-d812ef81970c?q=80&w=500&auto=format&fit=crop' },
-  { name: 'Scuba Diving', image: 'https://images.unsplash.com/photo-1544551763-47a0159c9233?q=80&w=500&auto=format&fit=crop' },
-  { name: 'Dhow Safaris', image: 'https://images.unsplash.com/photo-1510172951991-8594506604a8?q=80&w=500&auto=format&fit=crop' },
-  { name: 'Dolphin Tours', image: 'https://images.unsplash.com/photo-1570481662006-a3a1374699e8?q=80&w=500&auto=format&fit=crop' }
+  { name: 'Kite Surfing', image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770382420/kite_surfing_japhnz.jpg' },
+  { name: 'Scuba Diving', image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770382421/scuba_diving_kjskkg.jpg' },
+  { name: 'Dhow Safaris', image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770382420/dhow_safaris_rsvhal.jpg' },
+  { name: 'Dolphin Tours', image: 'https://res.cloudinary.com/drbhyey5b/image/upload/v1770382420/dolphin_tours_pc0mej.jpg' }
 ]
 </script>
 

@@ -6,7 +6,7 @@
       <div class="relative rounded-[2.5rem] overflow-hidden py-20 md:py-32 px-6 text-center text-white shadow-2xl">
         <!-- Background Image -->
         <img 
-          src="https://images.unsplash.com/photo-1589197331516-4d845f3eb63a?q=80&w=2070&auto=format&fit=crop" 
+          src="https://res.cloudinary.com/drbhyey5b/image/upload/v1770385743/Screenshot_2026-02-06_164019_ind5mc.png" 
           class="absolute inset-0 w-full h-full object-cover"
           alt="Mount Kilimanjaro"
         />
