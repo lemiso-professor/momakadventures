@@ -8,8 +8,11 @@ import ReviewView from "./ReView.vue";
 import ContactView from "./ContactView.vue"; 
 import AirView from "./AirView.vue";
 import BookingView from "./BookingView.vue";
-
+import SigninView from "./SigninView.vue";
+import RegisterView from "./RegisterView.vue";  
+import DashboardView from "./DashboardView.vue";
 
 
 export { HomeView, SafarisView, BeacholidaysView, AdventuresView,
-     PackagesView, GalleryView, ReviewView, ContactView, AirView, BookingView };
+     PackagesView, GalleryView, ReviewView, ContactView, AirView,
+      BookingView, SigninView, RegisterView, DashboardView };

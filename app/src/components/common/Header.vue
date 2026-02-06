@@ -18,16 +18,40 @@
         </div>
 
         <!-- Right: Auth Links -->
-        <div class="flex items-center gap-4 ml-auto md:ml-0 font-bold tracking-widest uppercase">
-          <a href="#" class="flex items-center gap-1.5 hover:text-[#F17216] transition-colors">
-            <svg class="w-3.5 h-3.5 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
-            Register
-          </a>
-          <a href="#" class="flex items-center gap-1.5 hover:text-[#F17216] transition-colors border-l border-white/10 pl-4">
-            <svg class="w-3.5 h-3.5 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-            Login
-          </a>
-        </div>
+        <div class="flex items-center gap-4 ml-auto md:ml-0 font-bold tracking-widest uppercase text-[10px] md:text-xs">
+  
+  <!-- CASE A: User is NOT logged in -->
+  <template v-if="!authStore.user">
+    <router-link to="/register" class="flex items-center gap-1.5 hover:text-[#F17216] transition-colors">
+      <svg class="w-3.5 h-3.5 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+      </svg>
+      Register
+    </router-link>
+
+    <router-link to="/signin" class="flex items-center gap-1.5 hover:text-[#F17216] transition-colors border-l border-white/10 pl-4">
+      <svg class="w-3.5 h-3.5 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+      </svg>
+      Login
+    </router-link>
+  </template>
+
+  <!-- CASE B: User IS logged in -->
+  <template v-else>
+    <router-link to="/dashboard" class="flex items-center gap-1.5 hover:text-[#F17216] transition-colors">
+      <svg class="w-3.5 h-3.5 text-[#F17216]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+      Dashboard
+    </router-link>
+
+    <button @click="handleLogout" class="flex items-center gap-1.5 hover:text-red-500 transition-colors border-l border-white/10 pl-4">
+      Logout
+    </button>
+  </template>
+
+</div>
       </div>
     </div>
 
@@ -109,11 +133,22 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router"; // 1. Added useRouter here
+import { useAuthStore } from "@/stores/auth";    // 2. Added this import
 
 const route = useRoute();
+const router = useRouter();       // 3. Initialize router
+const authStore = useAuthStore(); // 4. Initialize authStore
+
 const isOpen = ref(false);
 const scrolled = ref(false);
+
+// 5. Add the logout function so the button works
+const handleLogout = async () => {
+  await authStore.logout();
+  isOpen.value = false; // Close mobile menu if open
+  router.push('/');    // Redirect to home
+};
 
 const navigation = [
   { name: "Home", href: "/", icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>` },

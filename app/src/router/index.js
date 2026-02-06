@@ -23,6 +23,9 @@ const routes = [
   { path: "/contact", name: "contact", component: ContactView },
   { path: "/airbnb", name: "airbnb", component: AirView },
   { path: "/booking", name: "booking", component: BookingView },
+  { path: "/signin", name: "signin", component: () => import("../views/SigninView.vue") },
+  { path: "/register", name: "register", component: () => import("../views/RegisterView.vue") },
+  { path: "/dashboard", name: "dashboard", component: () => import("../views/DashboardView.vue") },
 
 ];
 
