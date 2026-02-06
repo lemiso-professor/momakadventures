@@ -9,6 +9,7 @@ import {
   ReviewView,
   ContactView,
   AirView,
+  BookingView,
 } from "../views";
 
 const routes = [
@@ -21,6 +22,7 @@ const routes = [
   { path: "/reviews", name: "reviews", component: ReviewView },
   { path: "/contact", name: "contact", component: ContactView },
   { path: "/airbnb", name: "airbnb", component: AirView },
+  { path: "/booking", name: "booking", component: BookingView },
 
 ];
 

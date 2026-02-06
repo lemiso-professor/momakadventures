@@ -19,16 +19,16 @@
 
         <!-- Profile Info -->
         <div class="flex flex-col items-center">
-          <div class="w-16 h-16 rounded-full border-2 border-[#F17216] p-1 mb-4">
-            <!-- Replace with actual image -->
+          <!-- <div class="w-16 h-16 rounded-full border-2 border-[#F17216] p-1 mb-4">
+             Replace with actual image 
             <img 
               src="https://randomuser.me/api/portraits/women/44.jpg" 
               alt="Sarah Jenkins" 
               class="w-full h-full rounded-full object-cover"
             />
-          </div>
-          <h4 class="text-xl font-bold mb-1">Sarah Jenkins</h4>
-          <span class="text-[#F17216] text-xs font-bold tracking-[0.2em] uppercase">United Kingdom</span>
+          </div> -->
+          <h4 class="text-xl font-bold mb-1">Sarah Wambui</h4>
+          <span class="text-[#F17216] text-xs font-bold tracking-[0.2em] uppercase">Nairobi , Kenya</span>
         </div>
       </div>
     </section>

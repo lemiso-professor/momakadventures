@@ -7,7 +7,9 @@ import GalleryView from "./GalleryView.vue";
 import ReviewView from "./ReView.vue";  
 import ContactView from "./ContactView.vue"; 
 import AirView from "./AirView.vue";
+import BookingView from "./BookingView.vue";
 
 
 
-export { HomeView, SafarisView, BeacholidaysView, AdventuresView, PackagesView, GalleryView, ReviewView, ContactView, AirView };
+export { HomeView, SafarisView, BeacholidaysView, AdventuresView,
+     PackagesView, GalleryView, ReviewView, ContactView, AirView, BookingView };
