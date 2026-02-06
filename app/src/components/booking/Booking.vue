@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#f8fafd] py-8 px-4 sm:px-6 lg:px-8 font-sans">
+  <div class="min-h-screen bg-[#f8fafd] py-32 px-4 sm:px-6 lg:px-8 font-sans">
     <div class="max-w-6xl mx-auto">
       
       <!-- HEADER -->
@@ -57,8 +57,9 @@
               Contact Information
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input type="text" placeholder="Full Name" class="border border-gray-200 rounded-xl p-3 text-sm focus:border-[#F17216] outline-none font-medium" />
-              <input type="email" placeholder="Email Address" class="border border-gray-200 rounded-xl p-3 text-sm focus:border-[#F17216] outline-none font-medium" />
+              <!-- CONNECTED WITH V-MODEL -->
+              <input v-model="userInput.fullName" type="text" placeholder="Full Name" class="border border-gray-200 rounded-xl p-3 text-sm focus:border-[#F17216] outline-none font-medium" />
+              <input v-model="userInput.email" type="email" placeholder="Email Address" class="border border-gray-200 rounded-xl p-3 text-sm focus:border-[#F17216] outline-none font-medium" />
             </div>
           </div>
 
@@ -68,12 +69,18 @@
               <span class="w-6 h-6 bg-[#F17216] text-white rounded-full flex items-center justify-center text-[10px]">3</span>
               Special Interests
             </h2>
-            <textarea rows="4" placeholder="Mention any specific wildlife, luxury level, or dietary needs..." class="w-full border border-gray-200 rounded-xl p-4 text-sm bg-gray-50 focus:border-[#F17216] outline-none transition-all font-medium"></textarea>
+            <!-- CONNECTED WITH V-MODEL -->
+            <textarea v-model="userInput.message" rows="4" placeholder="Mention any specific wildlife, luxury level, or dietary needs..." class="w-full border border-gray-200 rounded-xl p-4 text-sm bg-gray-50 focus:border-[#F17216] outline-none transition-all font-medium"></textarea>
           </div>
 
-          <!-- Submit -->
-          <button class="w-full md:w-auto bg-[#F17216] text-white px-12 py-4 rounded-xl font-black text-xs uppercase tracking-widest shadow-xl shadow-[#F17216]/20 hover:bg-[#d9620f] transition-all transform active:scale-95">
-            Submit Price Inquiry
+          <!-- Submit Button - CONNECTED TO HANDLE_SUBMIT -->
+          <button 
+            @click="handleSubmit"
+            :disabled="loading"
+            class="w-full md:w-auto bg-[#F17216] text-white px-12 py-4 rounded-xl font-black text-xs uppercase tracking-widest shadow-xl shadow-[#F17216]/20 hover:bg-[#d9620f] transition-all transform active:scale-95 disabled:opacity-50"
+          >
+            <span v-if="loading">Processing...</span>
+            <span v-else>Submit Price Inquiry</span>
           </button>
         </div>
 
@@ -105,11 +112,15 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
-import { useRoute } from 'vue-router'
+import { reactive, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { ShieldCheck } from 'lucide-vue-next'
+import { useAuthStore } from '@/stores/auth' // Import your store
 
 const route = useRoute()
+const router = useRouter()
+const authStore = useAuthStore()
+const loading = ref(false)
 
 const bookingData = reactive({
   name: route.query.name || 'Custom Safari',
@@ -119,8 +130,45 @@ const bookingData = reactive({
 const userInput = reactive({ 
   days: 1,
   adults: 2,
-  children: 0
+  children: 0,
+  fullName: '',
+  email: '',
+  message: ''
 })
+
+const handleSubmit = async () => {
+  // Check if logged in
+  if (!authStore.user) {
+    alert("Please log in to submit your inquiry.")
+    router.push('/signin')
+    return
+  }
+
+  // Basic validation
+  if (!userInput.message) {
+    alert("Please add some details to your special interests.")
+    return
+  }
+
+  loading.value = true
+  try {
+    // Calling the createInquiry action from src/stores/auth.js
+    await authStore.createInquiry({
+      trip_title: bookingData.name,
+      days: userInput.days,
+      adults: userInput.adults,
+      children: userInput.children,
+      message: userInput.message
+    })
+    
+    alert("Success! Your inquiry has been sent. You can track it on your dashboard.")
+    router.push('/dashboard')
+  } catch (error) {
+    alert("Error: " + error.message)
+  } finally {
+    loading.value = false
+  }
+}
 </script>
 
 <style scoped>

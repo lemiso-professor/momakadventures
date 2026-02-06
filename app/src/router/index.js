@@ -26,6 +26,16 @@ const routes = [
   { path: "/signin", name: "signin", component: () => import("../views/SigninView.vue") },
   { path: "/register", name: "register", component: () => import("../views/RegisterView.vue") },
   { path: "/dashboard", name: "dashboard", component: () => import("../views/DashboardView.vue") },
+  { 
+  path: "/admin", 
+  component: () => import("../components/auth/dashboard/AdminView.vue"),
+  // Optional: Add a "Guard" so only admins can enter
+  beforeEnter: (to, from, next) => {
+    const authStore = useAuthStore();
+    if (authStore.profile?.role === 'admin') next();
+    else next('/signin');
+  }
+}
 
 ];
 

@@ -1,15 +1,14 @@
 <template>
-  <div class="p-8">
-    <div v-if="authStore.loading">Loading...</div>
-    
-    <div v-else-if="authStore.profile">
-      <!-- Admin sees AdminView, Client sees ClientView -->
+  <div class="pt-24">
+    <!-- Decider Logic -->
+    <div v-if="authStore.profile">
+      
+      <!-- If role is admin, show AdminView -->
       <AdminView v-if="authStore.profile.role === 'admin'" />
+      
+      <!-- Otherwise, show ClientView -->
       <ClientView v-else />
-    </div>
-
-    <div v-else>
-      Please <router-link to="/signin" class="text-orange-500">Log in</router-link> to view your dashboard.
+      
     </div>
   </div>
 </template>
